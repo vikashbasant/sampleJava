@@ -13,12 +13,13 @@ import java.nio.file.Paths;
 public class Employee {
 
 
+    static final String PATH = "src/com/junit/ui/sample.json";
     /**
         This will print the all information like: first_name, last_name, mobile, status, address, working_days
      */
     public void getInfo() throws IOException {
 
-        File file=new File("/home/decimal/IdeaProjects/sampleJava/src/com/junit/ui/sample.json");
+        File file=new File(PATH);
         ObjectMapper objectMapper= new ObjectMapper();
         JsonNode node=objectMapper.readTree(file);
         System.out.println(node.get("first_name"));
@@ -33,11 +34,11 @@ public class Employee {
         This will update the value provided for the key name in parameters:
      */
     public void updateMobileInfo(String update, String value) throws IOException {
-        File file=new File("/home/decimal/IdeaProjects/sampleJava/src/com/junit/ui/sample.json");
+        File file=new File(PATH);
         ObjectMapper objectMapper= new ObjectMapper();
         JsonNode node=objectMapper.readTree(file);
         ((ObjectNode)node).put(update,value);
-        Files.write(Paths.get("/home/decimal/IdeaProjects/sampleJava/src/com/junit/ui/sample.json"),node.toString().getBytes(StandardCharsets.UTF_8));
+        Files.write(Paths.get(PATH),node.toString().getBytes(StandardCharsets.UTF_8));
         System.out.println(node.get(update));
     }
 
@@ -45,11 +46,11 @@ public class Employee {
         This will delete the value provided for the key name in parameters:
      */
     public void deleteMobileInfo(String mobile) throws IOException {
-        File file = new File("/home/decimal/IdeaProjects/sampleJava/src/com/junit/ui/sample.json");
+        File file = new File(PATH);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode node = objectMapper.readTree(file);
         ((ObjectNode)node).put(mobile, "");
-        Files.write(Paths.get("/home/decimal/IdeaProjects/sampleJava/src/com/junit/ui/sample.json"), node.toString().getBytes(StandardCharsets.UTF_8));
+        Files.write(Paths.get(PATH), node.toString().getBytes(StandardCharsets.UTF_8));
         System.out.println(node.get(mobile));
     }
 
@@ -57,7 +58,7 @@ public class Employee {
         This will fetch the value of findSecondWorkingDays:
      */
     public void findSecondWorkingDays() throws IOException {
-        File file = new File("/home/decimal/IdeaProjects/sampleJava/src/com/junit/ui/sample.json");
+        File file = new File(PATH);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode node = objectMapper.readTree(file);
         System.out.println(node.get("working_days").get(1));

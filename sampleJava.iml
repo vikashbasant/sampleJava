@@ -27,5 +27,7 @@
         <jarDirectory url="file://$USER_HOME$/Downloads/jar_files (2)" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jackson-databind-2.14.1" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.14.1" level="project" />
   </component>
 </module>
